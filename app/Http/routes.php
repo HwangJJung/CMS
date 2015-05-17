@@ -48,11 +48,12 @@ if (Config::get('cms.blogging')) {
 
 // page routes
 $router->resource('pages', 'PageController');
+//$router->resource('photo', 'PhotoController');
 
 // blog routes
 if (Config::get('cms.blogging')) {
     $router->resource('blog/posts', 'PostController');
-    $router->resource('blog/posts.comments', 'CommentController');
+    $router->resource('blog/posts.photo', 'PhotoController');
 }
 
 // event routes

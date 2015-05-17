@@ -182,5 +182,7 @@ return [
     */
 
     'post' => 'GrahamCampbell\BootstrapCMS\Models\Post',
+    'photo' => 'GrahamCampbell\BootstrapCMS\Models\Photo',
+
 
 ];

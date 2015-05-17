@@ -13,11 +13,13 @@ namespace GrahamCampbell\BootstrapCMS\Providers;
 
 use GrahamCampbell\BootstrapCMS\Http\Controllers\CommentController;
 use GrahamCampbell\BootstrapCMS\Http\Controllers\PageController;
+use GrahamCampbell\BootstrapCMS\Http\Controllers\PhotoController;
 use GrahamCampbell\BootstrapCMS\Navigation\Factory;
 use GrahamCampbell\BootstrapCMS\Repositories\CommentRepository;
 use GrahamCampbell\BootstrapCMS\Repositories\EventRepository;
 use GrahamCampbell\BootstrapCMS\Repositories\PageRepository;
 use GrahamCampbell\BootstrapCMS\Repositories\PostRepository;
+use GrahamCampbell\BootstrapCMS\Repositories\PhotoRepository;
 use GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber;
 use GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber;
 use Illuminate\Support\ServiceProvider;
@@ -81,11 +83,13 @@ class AppServiceProvider extends ServiceProvider
         $this->registerEventRepository();
         $this->registerPageRepository();
         $this->registerPostRepository();
+        $this->registerPhotoRepository();
 
         $this->registerCommandSubscriber();
         $this->registerNavigationSubscriber();
 
         $this->registerCommentController();
+        $this->registerPhotoController();
         $this->registerPageController();
     }
 
@@ -126,6 +130,24 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->alias('commentrepository', 'GrahamCampbell\BootstrapCMS\Repositories\CommentRepository');
+    }
+    /**
+     * Register the comment repository class.
+     *
+     * @return void
+     */
+    protected function registerPhotoRepository()
+    {
+        $this->app->singleton('photorepository', function ($app) {
+            $model = $app['config']['cms.photo'];
+            $photo = new $model();
+
+            $validator = $app['validator'];
+
+            return new PhotoRepository($photo, $validator);
+        });
+
+        $this->app->alias('photorepository', 'GrahamCampbell\BootstrapCMS\Repositories\PhotoRepository');
     }
 
     /**
@@ -239,6 +261,15 @@ class AppServiceProvider extends ServiceProvider
         });
     }
 
+
+    protected function registerPhotoController()
+    {
+        $this->app->bind('GrahamCampbell\BootstrapCMS\Http\Controllers\PhotoController', function ($app) {
+
+            return new PhotoController();
+        });
+    }
+
     /**
      * Register the page controller class.
      *
@@ -268,6 +299,7 @@ class AppServiceProvider extends ServiceProvider
             'folderprovider',
             'pagerepository',
             'postrepository',
+            'photorepository',
         ];
     }
 }

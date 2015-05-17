@@ -5,10 +5,19 @@
         <div class="row">
             <div class="col-md-8 col-sm-9 center-block text-center">
                 <header>
-                    <h1>3 Columns details grid portfolio</h1>
+                    <h1>ShowPieces</h1>
+                    <p>
+                    @if (count($posts) == 0)
+                            There are currently no blog posts.
+                    @else
+                        Here you may find our blog posts:
+                    @endif
+                    </p>
 
-                    <p>Magnis modipsae voloratati andigen daepeditem quiate re porem que aut labor. Laceaque
-                        eictemperum quiae sitiorem rest non restibusaes.</p>
+                    @auth('blog')
+                            <a class="btn btn-primary" href="{!! URL::route('blog.posts.create') !!}"><i class="fa fa-book"></i> New Post</a>
+                    @endauth
+
                 </header>
             </div>
             <!-- /.col -->
@@ -32,324 +41,29 @@
 
                 <ul class="items col-3 gap">
 
-                    <li class="item thumb interactive">
-                        <figure>
+                    @foreach($posts as $post)
+                        <li class="item thumb interactive">
+                            <figure>
 
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/work01.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Appscreen Dashboard</a></h4>
-
-                                    <p>Interactive</p>
+                                <div class="icon-overlay icn-link">
+                                    <a href="{!! URL::route('blog.posts.show', array('posts' => $post->id)) !!}"><img src="/assets/images/art/work01.jpg" alt=""></a>
                                 </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
-                    <li class="item thumb identity">
-                        <figure>
-
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/work02.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Grand Motel</a></h4>
-
-                                    <p>Identity</p>
-                                </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
-                    <li class="item thumb identity">
-                        <figure>
-
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/work16.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Signwall</a></h4>
-
-                                    <p>Identity</p>
-                                </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
-                    <li class="item thumb print">
-                        <figure>
-
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/work18.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Modern CD Case</a></h4>
-
-                                    <p>Print</p>
-                                </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
-                    <li class="item thumb identity">
-                        <figure>
-
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/work09.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Astor & Yancy</a></h4>
-
-                                    <p>Identity</p>
-                                </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
-                    <li class="item thumb photography">
-                        <figure>
-
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/photograph02.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Daydreaming</a></h4>
-
-                                    <p>Photography</p>
-                                </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
-                    <li class="item thumb identity">
-                        <figure>
-
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/work08a.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Brand Stationery</a></h4>
-
-                                    <p>Identity</p>
-                                </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
-                    <li class="item thumb print">
-                        <figure>
-
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/work10.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Tri Fold Brochure</a></h4>
-
-                                    <p>Print</p>
-                                </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
-                    <li class="item thumb interactive">
-                        <figure>
-
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/work03.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Vintage Bicycles</a></h4>
-
-                                    <p>Interactive</p>
-                                </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
-                    <li class="item thumb print">
-                        <figure>
-
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/work20.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Electric Dance Book Cover</a></h4>
-
-                                    <p>Print</p>
-                                </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
-                    <li class="item thumb identity">
-                        <figure>
-
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/work05.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Embroidered</a></h4>
-
-                                    <p>Identity</p>
-                                </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
-                    <li class="item thumb identity print">
-                        <figure>
-
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/work21.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Brand Stationery</a></h4>
-
-                                    <p>Identity/Print</p>
-                                </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
-                    <li class="item thumb identity">
-                        <figure>
-
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/work17.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Handmade Wood Gifts</a></h4>
-
-                                    <p>Identity</p>
-                                </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
-                    <li class="item thumb identity">
-                        <figure>
-
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/work19.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Designer Brand</a></h4>
-
-                                    <p>Identity</p>
-                                </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
-                    <li class="item thumb print">
-                        <figure>
-
-                            <div class="icon-overlay icn-link">
-                                <a href="portfolio-post.html"><img src="assets/images/art/work07.jpg" alt=""></a>
-                            </div>
-                            <!-- /.icon-overlay -->
-
-                            <figcaption class="bordered no-top-border">
-                                <div class="info">
-                                    <h4><a href="portfolio-post.html">Vinyl Records</a></h4>
-
-                                    <p>Print</p>
-                                </div>
-                                <!-- /.info -->
-                            </figcaption>
-
-                        </figure>
-                    </li>
-                    <!-- /.item -->
-
+                                <!-- /.icon-overlay -->
+
+                                <figcaption class="bordered no-top-border">
+                                    <div class="info">
+                                        <h4><a href="{!! URL::route('blog.posts.show', array('posts' => $post->id)) !!}">{!! $post->title !!}</a></h4>
+
+                                        <p>Interactive</p>
+                                    </div>
+                                    <!-- /.info -->
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- /.item -->
+                    @endforeach
                 </ul>
                 <!-- /.items -->
-
             </div>
             <!-- /.col -->
         </div>
@@ -359,43 +73,3 @@
 </section>
 
 <!-- ============================================================= SECTION – PORTFOLIO : END ============================================================= -->
-
-
-<!-- ============================================================= SECTION – SHARE ============================================================= -->
-
-<section id="share" class="light-bg">
-    <div class="container">
-
-        <div class="col-sm-4 reset-padding">
-            <a href="#" class="btn-share-md">
-                <p class="name">Facebook</p>
-                <i class="icon-s-facebook"></i>
-
-                <p class="counter">1080</p>
-            </a>
-        </div>
-        <!-- /.col -->
-
-        <div class="col-sm-4 reset-padding">
-            <a href="#" class="btn-share-md">
-                <p class="name">Twitter</p>
-                <i class="icon-s-twitter"></i>
-
-                <p class="counter">1263</p>
-            </a>
-        </div>
-        <!-- /.col -->
-
-        <div class="col-sm-4 reset-padding">
-            <a href="#" class="btn-share-md">
-                <p class="name">Google +</p>
-                <i class="icon-s-gplus"></i>
-
-                <p class="counter">963</p>
-            </a>
-        </div>
-        <!-- /.col -->
-
-    </div>
-    <!-- /.container -->
-</section>

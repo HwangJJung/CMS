@@ -119,32 +119,32 @@
                     <ul class="nav navbar-nav">
 
                         <li class="">
-                            <a href="#hero" class="scrollTo">PLAN A</a>
+                            <a href="/hero" class="scrollTo">PLAN A</a>
                         </li>
                         <!-- /.dropdown -->
 
                         <li class="">
-                            <a href="#philosophy" class="scrollTo">PHILOSOPHY</a>
+                            <a href="/philosophy" class="scrollTo">PHILOSOPHY</a>
                         </li>
                         <!-- /.dropdown -->
 
                         <li class="">
-                            <a href="#people" class="scrollTo">PEOPLE</a>
+                            <a href="/people" class="scrollTo">PEOPLE</a>
                         </li>
                         <!-- /.dropdown -->
 
                         <li class="">
-                            <a href="#showpieces" class="scrollTo">SHOWPIECE</a>
+                            <a href="/showpieces" class="scrollTo">SHOWPIECE</a>
                         </li>
                         <!-- /.dropdown -->
 
                         <li class="">
-                            <a href="#history" class="scrollTo">COMPANY HISTORY</a>
+                            <a href="/history" class="scrollTo">COMPANY HISTORY</a>
                         </li>
                         <!-- /.dropdown -->
 
                         <li class="">
-                            <a href="#contacts" class="scrollTo">CONTACTS</a>
+                            <a href="/contacts" class="scrollTo">CONTACTS</a>
                         </li>
                         <!-- /.dropdown -->
 
