@@ -74,7 +74,8 @@ class PostController extends AbstractController
     public function store()
     {
         $input = array_merge(['user_id' => Credentials::getuser()->id], Binput::only([
-            'title', 'summary', 'body',
+            'title', 'summary', 'body'
+//            ,'place','en_title', 'en_summary', 'en_body','en_place'
         ]));
 
         $val = PostRepository::validate($input, array_keys($input));
@@ -129,7 +130,9 @@ class PostController extends AbstractController
      */
     public function update($id)
     {
-        $input = Binput::only(['title', 'summary', 'body']);
+        $input = Binput::only([ 'title', 'summary', 'body'
+//            'place','en_title', 'en_summary', 'en_body','en_place'
+        ]);
 
         $val = PostRepository::validate($input, array_keys($input));
         if ($val->fails()) {

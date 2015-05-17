@@ -32,7 +32,12 @@ class CreatePostsTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('title');
             $table->string('summary');
+            $table->string('place')->nullable();
             $table->text('body');
+            $table->string('en_title')->nullable();
+            $table->string('en_summary')->nullable();
+            $table->text('en_body')->nullable();
+            $table->string('en_place')->nullable();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();

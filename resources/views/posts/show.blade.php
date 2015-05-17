@@ -5,13 +5,8 @@
 @stop
 
 @section('top')
-<div class="page-header">
-<h1>{{ $post->title }}</h1>
-</div>
-@stop
 
-@section('content')
-@auth('blog')
+    @auth('blog')
     <div class="well clearfix">
         <div class="hidden-xs">
             <div class="col-xs-6">
@@ -47,69 +42,39 @@
         </div>
     </div>
     <hr>
-@endauth
+    @endauth
 
-<div class="row">
-    <div class="hidden-xs">
-        <div class="col-md-8 col-xs-6">
-            <p class="lead">{!! $post->summary !!}</p>
-        </div>
-        <div class="col-md-4 col-xs-6">
-            <div class="pull-right">
-                <p>Author: {!! $post->author !!}</p>
-            </div>
-        </div>
-    </div>
-    <div class="visible-xs">
-        <div class="col-xs-12">
-            <p class="lead">{!! $post->summary !!}</p>
-            <p>Author: {!! $post->author !!}</p>
-        </div>
-    </div>
-</div>
-<br>
+@stop
 
-{!! $post->content !!}
-<br><hr>
+@section('content')
 
-<h3>Comments</h3>
-@auth('user')
-    <br>
-    <div class="well well-sm clearfix">
-        {!! Form::open(array('id' => 'commentform', 'url' => URL::route('blog.posts.comments.store', array('posts' => $post->id)), 'method' => 'POST', 'class' => 'form-vertical')) !!}
-            <div class="form-group">
-                <div class="col-xs-12">
-                    <textarea id="body" name="body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-12 comment-button">
-                    <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button> <label id="commentstatus"></label>
-                </div>
-            </div>
-        {!! Form::close() !!}
-    </div>
-@else
-<p>
-    @if (Config::get('credentials.regallowed'))
-        <strong>Please <a href="{!! URL::route('account.login') !!}">login</a> or <a href="{!! URL::route('account.register') !!}">register</a> to post a comment.</strong>
-    @else
-        <strong>Please <a href="{!! URL::route('account.login') !!}">login</a> to post a comment.</strong>
-    @endif
-</p>
-@endauth
-<br>
+@include('sections.post')
 
-<?php $post_id = $post->id; ?>
-<div id="comments" data-url="{!! URL::route('blog.posts.comments.index', array('posts' => $post_id)) !!}">
-    @if (count($comments) == 0)
-    <p id="nocomments">There are currently no comments.</p>
-    @else
-        @foreach ($comments as $comment)
-            @include('posts.comment')
-        @endforeach
-    @endif
-</div>
+
+{{--<div class="row">--}}
+    {{--<div class="hidden-xs">--}}
+        {{--<div class="col-md-8 col-xs-6">--}}
+            {{--<p class="lead">{!! $post->summary !!}</p>--}}
+        {{--</div>--}}
+        {{--<div class="col-md-4 col-xs-6">--}}
+            {{--<div class="pull-right">--}}
+                {{--<p>Author: {!! $post->author !!}</p>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    {{--<div class="visible-xs">--}}
+        {{--<div class="col-xs-12">--}}
+            {{--<p class="lead">{!! $post->summary !!}</p>--}}
+            {{--<p>Author: {!! $post->author !!}</p>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</div>--}}
+{{--<br>--}}
+
+{{--{!! $post->content !!}--}}
+{{--<br><hr>--}}
+
+
 @stop
 
 @section('bottom')

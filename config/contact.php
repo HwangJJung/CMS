@@ -37,6 +37,6 @@ return [
     |
     */
 
-    'email' => 'admin@example.com',
+    'email' => 'marvel94@naver.com',
 
 ];

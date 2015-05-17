@@ -51,9 +51,9 @@
     <hr>
 @endauth
 @if (Config::get('cms.eval', false))
-<?php eval('?>'.$page->body); ?>
+    <?php eval('?>'.$page->body); ?>
 @else
-{!! $page->body !!}
+    {!! $page->body !!}
 @endif
 @stop
 

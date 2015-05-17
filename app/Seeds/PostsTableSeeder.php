@@ -32,9 +32,14 @@ class PostsTableSeeder extends Seeder
         DB::table('posts')->truncate();
 
         $post = [
-            'title'      => 'Hello World',
-            'summary'    => 'This is the first blog post.',
-            'body'       => 'This is an example blog post.',
+            'en_title'      => 'Hello World',
+            'en_summary'    => 'This is the first blog post.',
+            'en_body'       => 'This is an example blog post.',
+            'title'      => '안녕 세상아',
+            'summary'    => '첫번째 블로그 포스트.',
+            'body'       => 'This is an 예시 blog post.',
+            'place'       => '판교야.',
+            'en_place'       => 'paannnggyoyoyoyo',
             'user_id'    => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

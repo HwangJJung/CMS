@@ -53,7 +53,10 @@ class Post extends AbstractModel implements HasPresenter
      *
      * @var array
      */
-    protected $keepRevisionOf = ['title', 'summary', 'body'];
+    protected $keepRevisionOf = [
+//        'en_title', 'en_summary', 'en_body',
+        'title', 'summary', 'body'
+    ];
 
     /**
      * The columns to select when displaying an index.

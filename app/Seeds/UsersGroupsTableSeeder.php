@@ -31,14 +31,14 @@ class UsersGroupsTableSeeder extends Seeder
     {
         DB::table('users_groups')->truncate();
 
-        $this->matchUser('admin@dsmg.co.uk', 'Admins');
-        $this->matchUser('semiadmin@dsmg.co.uk', 'Moderators');
-        $this->matchUser('semiadmin@dsmg.co.uk', 'Bloggers');
-        $this->matchUser('semiadmin@dsmg.co.uk', 'Editors');
-        $this->matchUser('moderator@dsmg.co.uk', 'Moderators');
-        $this->matchUser('blogger@dsmg.co.uk', 'Bloggers');
-        $this->matchUser('editor@dsmg.co.uk', 'Editors');
-        $this->matchUser('user@dsmg.co.uk', 'Users');
+        $this->matchUser('planA@gmail.com', 'Admins');
+//        $this->matchUser('semiadmin@dsmg.co.uk', 'Moderators');
+//        $this->matchUser('semiadmin@dsmg.co.uk', 'Bloggers');
+//        $this->matchUser('semiadmin@dsmg.co.uk', 'Editors');
+//        $this->matchUser('moderator@dsmg.co.uk', 'Moderators');
+//        $this->matchUser('blogger@dsmg.co.uk', 'Bloggers');
+//        $this->matchUser('editor@dsmg.co.uk', 'Editors');
+//        $this->matchUser('user@dsmg.co.uk', 'Users');
     }
 
     /**
